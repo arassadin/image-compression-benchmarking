@@ -2,6 +2,10 @@
 
 This project inspired by Google's paper ***Globally Normalized Transition-Based Neural Networks*** ([arxiv](https://arxiv.org/abs/1603.06042)) and its TensorFlow [implementation](https://github.com/tensorflow/models/tree/master/compression).
 
+# Requirements
+
+# HowTo
+
 # License
 All files in *google* subfolder have a license from the original project and was taken from tensorflow/models@76739168f61dd9bb849e500bbd235fa9e4b7612f .
 
