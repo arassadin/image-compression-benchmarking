@@ -70,12 +70,17 @@ def main(_):
     results_dec = sess.run(outputs_dec, feed_dict=feed_dict)
 
     print 'Saving...'
-    img_compressed = np.uint8(np.clip(results_dec[-1] + 0.5, 0, 255))
-    img_compressed = img_compressed.squeeze()
-    out_name = os.path.basename(FLAGS.image).rsplit('.')
-    cv2.imwrite(os.path.join(os.path.dirname(FLAGS.image),
-                             out_name[0] + '_compressed.' + out_name[1]),
-                cv2.cvtColor(img_compressed, cv2.COLOR_RGB2BGR))
+    if not os.path.isdir('compressed'):
+	os.mkdir('compressed')
+    out_name = os.path.basename(FLAGS.image).rsplit(',')
+    dir_name = 'compressed/%s' % out_name[0]
+    os.mkdir(dir_name)
+    for j in xrange(2, FLAGS.quality + 1, 2):    
+	    img_compressed = np.uint8(np.clip(results_dec[j] + 0.5, 0, 255))
+	    img_compressed = img_compressed.squeeze()
+	    
+	    cv2.imwrite(os.path.join(dir_name, str(j) + '_ratio_compress.ppm'),
+			cv2.cvtColor(img_compressed, cv2.COLOR_RGB2BGR))
 
 if __name__ == '__main__':
   tf.app.run()
