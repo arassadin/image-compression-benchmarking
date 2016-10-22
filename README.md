@@ -4,6 +4,15 @@ This project inspired by Google's paper ***Full Resolution Image Compression wit
 
 # Requirements
 
+* [Ubuntu](https://www.ubuntu.com/) 14.04+ (tested)
+* [TensorFlow](https://www.tensorflow.org/)
+* [Pillow](https://python-pillow.org/) 3.4+
+* [NumPy](http://www.numpy.org/) 1.11+
+
+# Installation
+
+1. First, install suitable TensorFlow version. See instruction [here](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md).
+
 # HowTo
 
 # License
