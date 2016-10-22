@@ -4,6 +4,13 @@ This project inspired by Google's paper ***Full Resolution Image Compression wit
 
 # Requirements
 
+Hardware:
+
+* **GPU is not necessary** but preferable
+* At least 3Gb of RAM
+
+Software:
+
 * [Ubuntu](https://www.ubuntu.com/) 14.04+ (tested)
 * [TensorFlow](https://www.tensorflow.org/)
 * [Pillow](https://python-pillow.org/) 3.4+
