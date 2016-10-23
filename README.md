@@ -2,6 +2,8 @@
 
 This project inspired by Google's paper ***Full Resolution Image Compression with Recurrent Neural Networks*** ([arxiv](https://arxiv.org/abs/1608.05148)) and its TensorFlow [implementation](https://github.com/tensorflow/models/tree/master/compression).
 
+The code inside aims to compare (quantitatively and qualitatively) different aspects compression done by this *Method* and codecs popular today, in different compression levels, for different image sizes.
+
 # Requirements
 
 Hardware:
@@ -25,6 +27,12 @@ Software:
     `./install_deps.sh`
 
 # HowTo
+
+* First, download Google's pre-trained model via `download_model.sh`
+
+* Run `generate_test_samples.sh` **or** `python generate_test_samples_regular.py`, `generate_test_samples_nn.py` **successively**. It will generate a bunch of samples compressed using regular codecs (like *jpeg*, *png* etc.) and also *NN*-based method.
+
+# Results
 
 # License
 All files in *google* subfolder have a license from the original project and was taken from tensorflow/models@76739168f61dd9bb849e500bbd235fa9e4b7612f .
