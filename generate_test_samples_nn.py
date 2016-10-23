@@ -6,12 +6,12 @@ from PIL import Image
 import cv2
 import time
 
+
 tf.flags.DEFINE_string('image_tmpl', 'test_images/*_orig.ppm', 'Images to compress.')
 tf.flags.DEFINE_string('quality', '3,6,9,12', 'List of comression levels, separeted by comma'
                        'Must be between 0 and 15 inclusive.')
 tf.flags.DEFINE_string('model', 'google\'s-compression-model/residual_gru.pb',
                        'Location of compression model.')
-
 FLAGS = tf.flags.FLAGS
 
 
