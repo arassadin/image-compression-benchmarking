@@ -5,7 +5,6 @@ from msssim import MultiScaleSSIM
 from PIL import Image
 import numpy as np
 from glob import glob
-import cv2
 import time
 
 
@@ -65,14 +64,14 @@ def main():
             print '[{}] [INFO]     handling resolution \'{}\''.format(time.strftime("%H:%M:%S"),
                                                                        size)
             file_orig = files_samesource_orig[imgs_sizes[size]]
-            img_orig = cv2.cvtColor(cv2.imread(file_orig), cv2.COLOR_BGR2RGB)
+            img_orig = np.array(Image.open(file_orig))
 
             files_samesize = glob(os.path.join(SAMPLES_DIR, '{}_*{}*'.format(name, size)))
             files_samesize = [f for f in files_samesize if f not in files_samesource_orig]
             for f in files_samesize:
                 print '[{}] [INFO]         found \'{}\''.format(time.strftime("%H:%M:%S"),
                                                                 os.path.basename(f))
-                img_cmp = cv2.cvtColor(cv2.imread(f), cv2.COLOR_BGR2RGB)
+                img_cmp = np.array(Image.open(f))
                 diff = compare(img_orig, img_cmp)
                 cmp_params = ''.join(os.path.basename(f).split('_')[1:])
                 start = cmp_params.find('size=')

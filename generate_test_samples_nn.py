@@ -3,7 +3,6 @@ import numpy as np
 import tensorflow as tf
 from glob import glob
 from PIL import Image
-import cv2
 import time
 
 
@@ -62,7 +61,7 @@ def main(_):
             images = []
             tmp_fnames = []
             for ind in size_ind:
-                img = cv2.cvtColor(cv2.imread(img_files[ind]), cv2.COLOR_BGR2RGB)
+                img = np.array(Image.open(img_files[ind]))
                 images.append(img)
                 tmp_fnames.append(os.path.basename(img_files[ind]))
             images = np.asarray(images, dtype=np.uint8)
@@ -99,8 +98,8 @@ def main(_):
                                             )
                     print '[{}] [INFO]         saving \'{}\''.format(time.strftime("%H:%M:%S"),
                                                                     os.path.basename(out_path))
-                    cv2.imwrite(out_path,
-                                cv2.cvtColor(img_compressed[i], cv2.COLOR_RGB2BGR))
+		    Image.fromarray(img_compressed[i]).save(out_path, format='ppm')
+
     print '[{}] [INFO] Done!'.format(time.strftime('%H:%M:%S'))
 
 if __name__ == '__main__':
