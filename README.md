@@ -20,6 +20,10 @@ Software:
 
 1. First, install suitable TensorFlow version. See instruction [here](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md).
 
+2. Install other project dependencies:
+
+    `./install_deps.sh`
+
 # HowTo
 
 # License
