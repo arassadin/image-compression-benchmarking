@@ -74,7 +74,7 @@ def main(_):
         out_path = os.path.join(os.path.dirname(FLAGS.image),
                                 '{}_compressed_quality={}.{}'.format(''.join(out_name[:-1]),
                                                                  FLAGS.quality,
-                                                                 out_name[-1]
+                                                                 'ppm'
                                                                  )
                                 )
         print '[{}] [INFO]         saving \'{}\''.format(time.strftime('%H:%M:%S'),
