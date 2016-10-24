@@ -2,7 +2,6 @@ import os
 import numpy as np
 import tensorflow as tf
 from PIL import Image
-import cv2
 import time
 
 tf.flags.DEFINE_string('image', None, 'Location of image to compress.')
@@ -50,7 +49,7 @@ def main(_):
         outputs_dec = [graph.get_tensor_by_name(name) for name in
                        get_output_tensor_names_dec()][0 : FLAGS.quality + 1]
 
-        img = cv2.cvtColor(cv2.imread(FLAGS.image), cv2.COLOR_BGR2RGB)
+        img = np.array(Image.open(FLAGS.image))
         print '[{}] [INFO] Processing \'{}\' for quality {}'.format(time.strftime('%H:%M:%S'),
                                                                     os.path.basename(FLAGS.image),
                                                                     FLAGS.quality)
@@ -80,7 +79,7 @@ def main(_):
                                 )
         print '[{}] [INFO]         saving \'{}\''.format(time.strftime('%H:%M:%S'),
                                                          os.path.basename(out_path))
-        cv2.imwrite(out_path, cv2.cvtColor(img_compressed, cv2.COLOR_RGB2BGR))
+        Image.fromarray(img_compressed).save(out_path, format='ppm')
     print '[{}] [INFO] Done!'.format(time.strftime('%H:%M:%S'))
 
 if __name__ == '__main__':
