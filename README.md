@@ -30,7 +30,7 @@ Software:
 
 * First, download Google's pre-trained model via `download_model.sh`
 
-* Run `generate_test_samples.sh` **or** `python generate_test_samples_regular.py`, `python generate_test_samples_nn.py` **successively**. It will generate a bunch of samples compressed using regular codecs (like *jpeg*, *png* etc.) and the **method**.
+* Run `generate_test_samples.sh` **or** `python generate_test_samples_regular.py`, `python generate_test_samples_nn.py` **successively**. It will generate a bunch of samples compressed using regular codecs (like *jpeg*, *webp* etc.) and the **method**.
 
 # Results
 
