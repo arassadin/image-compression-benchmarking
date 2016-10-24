@@ -28,9 +28,31 @@ Software:
 
 # HowTo
 
-* First, download Google's pre-trained model via `download_model.sh`
+First, download Google's pre-trained model via `download_model.sh`. It required for all further actions.
 
-* Run `generate_test_samples.sh` **or** `python generate_test_samples_regular.py`, `python generate_test_samples_nn.py` **successively**. It will generate a bunch of samples compressed using regular codecs (like *jpeg*, *png* etc.) and the **method**.
+---
+
+If you want just to try Google's model, you should run `python nn_compression_example.py` with following parameters:
+
+* `--image=/path/to/image` - path to image;
+* `--quality=0|...|15` - level of compression, default is `8`;
+* `--model=/path/to/model` - pre-trained model file, default is `google's-compression-model/residual_gru.pb`.
+
+Notice that the `image` should have width and height multiple of 32 according the **paper**.
+
+---
+
+If you want to (re)run benchmarking, you should first prepare the set of test images by executing `generate_test_samples.sh`. 
+
+Otherwise, you can **successively** run `python generate_test_samples_regular.py` and `python generate_test_samples_nn.py`. First one will generate some test samples, comressed with the regular codecs (list of codecs you can find in the code) and also reshapes images to be multiple of 32 by both sides. Second script will generate a bunch of test samples, comressed using the **method** encoding. You can specify the following parameters for the last one:
+
+* `--image_tmpl=root/to/images` - `regex` template to images to be compressed, default is `test_images/*_orig.ppm`;
+* `--quality=0|...|15,...,0|...|15` - levels of compression, default is `3,6,9,12`;
+* `--model=/path/to/model` - pre-trained model file, default is `google's-compression-model/residual_gru.pb`.
+
+It required once if you don't want to change comression parameters or images set.
+
+Finally, run `python benchmark_quality_msssim.py` for quality benchmarking based on MS-SSIM metric. It will generate results in `CSV` format.
 
 # Results
 
