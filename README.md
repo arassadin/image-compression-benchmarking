@@ -56,6 +56,8 @@ Finally, run `python benchmark_quality_msssim.py` for quality benchmarking based
 
 # Results
 
+Bellow you can see the quality benchmarking result based on MS-SSIM metric for a bunch of images. Clearly seen , that the quality of **method**'s compression depends on image resolution.
+
 ![cat.png](_benchmarks_/cat.png)
 
 ![frymire.png](_benchmarks_/frymire.png)
