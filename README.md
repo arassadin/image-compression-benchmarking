@@ -1,6 +1,6 @@
 # Image Compression Benchmarking
 
-This project inspired by Google's paper ***Full Resolution Image Compression with Recurrent Neural Networks*** ([arxiv](https://arxiv.org/abs/1608.05148)) and its TensorFlow [implementation](https://github.com/tensorflow/models/tree/master/compression).
+This project inspired by Google's paper ***Full Resolution Image Compression with Recurrent Neural Networks*** ([arxiv](https://arxiv.org/abs/1608.05148)) and its TensorFlow [implementation](https://github.com/tensorflow/models/tree/master/research/compression).
 
 The code inside aims to compare (quantitatively and qualitatively) different aspects of compression done by this **method** and codecs popular today, in different compression levels, for different image resolutions.
 
